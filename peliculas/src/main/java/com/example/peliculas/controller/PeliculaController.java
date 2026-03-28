@@ -36,7 +36,7 @@ public class PeliculaController {
     public ResponseEntity<PeliculaDTO> create(@RequestBody PeliculaDTO body) {
         return ResponseEntity.ok(service.crear(body));
     }
-    
+
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") String id) {
 
@@ -49,5 +49,16 @@ public class PeliculaController {
         return ResponseEntity.noContent().build();
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<?> update(@PathVariable("id") String id, @RequestBody PeliculaDTO body) {
+
+        PeliculaDTO actualizada = service.actualizar(id, body);
+
+        if (actualizada == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(actualizada);
+    }
 
 }
