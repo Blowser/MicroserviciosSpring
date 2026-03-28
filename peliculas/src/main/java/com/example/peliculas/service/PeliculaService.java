@@ -35,9 +35,21 @@ public class PeliculaService {
         peliculas.add(nueva);
         return nueva;
     }
-    
+
     public boolean eliminar(String id) {
         return peliculas.removeIf(p -> p.getId().equals(id));
     }
+
+    public PeliculaDTO actualizar(String id, PeliculaDTO nueva) {
+
+    for (int i = 0; i < peliculas.size(); i++) {
+        if (peliculas.get(i).getId().equals(id)) {
+            peliculas.set(i, nueva);
+            return nueva;
+        }
+    }
+
+    return null;
+}
 
 }
