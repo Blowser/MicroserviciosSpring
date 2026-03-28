@@ -13,10 +13,13 @@ public class PeliculaService {
     private List<PeliculaDTO> peliculas = new ArrayList<>();
 
     public PeliculaService() {
-        peliculas.add(new PeliculaDTO("1", "Shrek", "Andrew Adamson", "Animación"));
-        peliculas.add(new PeliculaDTO("2", "Interestelar", "Christopher Nolan", "Ciencia Ficción"));
-        peliculas.add(new PeliculaDTO("3", "El Padrino", "Francis Ford Coppola", "Drama"));
+    peliculas.add(new PeliculaDTO("1", "Shrek", "Andrew Adamson", "Animación"));
+    peliculas.add(new PeliculaDTO("2", "Interestelar", "Christopher Nolan", "Ciencia Ficción"));
+    peliculas.add(new PeliculaDTO("3", "El Padrino", "Francis Ford Coppola", "Drama"));
+    peliculas.add(new PeliculaDTO("4", "El Señor de los Anillos: La Comunidad del Anillo", "Peter Jackson", "Fantasía"));
+    peliculas.add(new PeliculaDTO("5", "Toy Story", "John Lasseter", "Animación"));
     }
+
 
     public List<PeliculaDTO> obtenerTodos() {
         return peliculas;
