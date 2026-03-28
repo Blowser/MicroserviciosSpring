@@ -36,4 +36,18 @@ public class PeliculaController {
     public ResponseEntity<PeliculaDTO> create(@RequestBody PeliculaDTO body) {
         return ResponseEntity.ok(service.crear(body));
     }
+    
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> delete(@PathVariable("id") String id) {
+
+        boolean eliminada = service.eliminar(id);
+
+        if (!eliminada) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.noContent().build();
+    }
+
+
 }
