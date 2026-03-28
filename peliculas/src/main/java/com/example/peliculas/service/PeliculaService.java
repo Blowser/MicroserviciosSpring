@@ -35,4 +35,9 @@ public class PeliculaService {
         peliculas.add(nueva);
         return nueva;
     }
+    
+    public boolean eliminar(String id) {
+        return peliculas.removeIf(p -> p.getId().equals(id));
+    }
+
 }
