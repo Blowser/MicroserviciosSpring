@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CitasmedicasApplication",
+            "request": "launch",
+            "mainClass": "com.semana3.citasmedicas.CitasmedicasApplication",
+            "projectName": "citasmedicas"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-MascotasApplication<mascotas>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
