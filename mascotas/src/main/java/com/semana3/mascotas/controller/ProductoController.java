@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.semana3.mascotas.dto.ProductoMascotaDTO;
 import com.semana3.mascotas.service.OrdenCompraService;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/productos")
@@ -35,12 +36,12 @@ public class ProductoController {
     }
 
     @PostMapping
-    public ResponseEntity<ProductoMascotaDTO> create(@RequestBody ProductoMascotaDTO body) {
+    public ResponseEntity<ProductoMascotaDTO> create(@Valid @RequestBody ProductoMascotaDTO body) {
         return ResponseEntity.ok(service.crearProducto(body));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> update(@PathVariable("id") String id, @RequestBody ProductoMascotaDTO body) {
+    public ResponseEntity<?> update(@PathVariable("id") String id, @Valid @RequestBody ProductoMascotaDTO body) {
 
         ProductoMascotaDTO actualizado = service.actualizarProducto(id, body);
 
