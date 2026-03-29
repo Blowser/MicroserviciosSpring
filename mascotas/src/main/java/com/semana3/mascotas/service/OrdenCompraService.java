@@ -59,4 +59,65 @@ public class OrdenCompraService {
         OrdenCompraDTO orden = obtenerPorId(id);
         return orden != null ? orden.getEstado() : null;
     }
+// ---------------------- PRODUCTOS ----------------------
+
+        public List<ProductoMascotaDTO> obtenerProductos() {
+            return productos;
+        }
+
+        public ProductoMascotaDTO obtenerProductoPorId(String id) {
+
+            for (ProductoMascotaDTO p : productos) {
+                if (p.getId().equals(id)) {
+                    return p;
+                }
+            }
+
+            return null;
+        }
+
+        public ProductoMascotaDTO crearProducto(ProductoMascotaDTO request) {
+
+            ProductoMascotaDTO nuevo = new ProductoMascotaDTO(
+                    UUID.randomUUID().toString(),
+                    request.getNombre(),
+                    request.getCategoria(),
+                    request.getPrecio()
+            );
+
+            productos.add(nuevo);
+            return nuevo;
+        }
+
+        public ProductoMascotaDTO actualizarProducto(String id, ProductoMascotaDTO request) {
+
+            for (ProductoMascotaDTO p : productos) {
+                if (p.getId().equals(id)) {
+                    p.setNombre(request.getNombre());
+                    p.setCategoria(request.getCategoria());
+                    p.setPrecio(request.getPrecio());
+                    return p;
+                }
+            }
+
+            return null;
+        }
+
+        public boolean eliminarProducto(String id) {
+
+            for (ProductoMascotaDTO p : productos) {
+                if (p.getId().equals(id)) {
+                    productos.remove(p);
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+
+
+
 }
+
+
